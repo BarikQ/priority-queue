@@ -8,20 +8,25 @@ class PriorityQueue {
 	}
 
 	push(data, priority) {
-		if(this.heap !== null) this.heap.push(data, priority);
-	}
-
-	shift() {
-		this.heap.pop();
-	}
-
-	size() {
-		
-	}
-
-	isEmpty() {
-		
-	}
+		if (this.size()<this.maxSize) this.heap.push(data, priority);
+		else throw new Error('full')
+		}
+	
+		shift() {
+		if (this.size()>0) {
+			return this.heap.pop();
+		}
+		else throw new Error('empty');
+		}
+	
+		size() {
+			return this.heap.size();
+	
+		}
+	
+		isEmpty() {
+			return this.heap.isEmpty();
+		}
 }
 
 module.exports = PriorityQueue;
